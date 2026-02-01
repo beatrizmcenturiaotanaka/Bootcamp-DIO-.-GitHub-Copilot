@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculando a Emissão de CO2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <h1 class="header__title">Calculando a Emissão de CO2</h1>
+    <p class="header__subtitle">Pensando no incentivo de escolhas mais sustentáveis para o seu dia a dia, esta calculadora tem como objetivo estimar a emissão de CO2 gerada por diferentes meios de transportes e te ajudar a ter escolhas mais conscientes!! </p>
+  </header>
+
+  <main class="main">
+    <form id="calculator-form" class="calculator-form" autocomplete="off">
+      <div class="calculator-form__group">
+        <label for="origin" class="calculator-form__label">Partida</label>
+        <input type="text" id="origin" name="origin" class="calculator-form__input" list="cities-list" required>
+      </div>
+      <div class="calculator-form__group">
+        <label for="destination" class="calculator-form__label">Chegada</label>
+        <input type="text" id="destination" name="destination" class="calculator-form__input" list="cities-list" required>
+      </div>
+      <datalist id="cities-list">
+        <!-- Preenchido via JavaScript -->
+      </datalist>
+      <div class="calculator-form__group">
+        <label for="distance" class="calculator-form__label">Distância (km)</label>
+        <input type="number" id="distance" name="distance" class="calculator-form__input" readonly>
+        <small class="calculator-form__help">A distância será preenchida automaticamente</small>
+      </div>
+      <div class="calculator-form__group calculator-form__group--checkbox">
+        <input type="checkbox" id="manual-distance" name="manual-distance" class="calculator-form__checkbox">
+        <label for="manual-distance" class="calculator-form__checkbox-label">Inserir distância manualmente</label>
+      </div>
+      <fieldset class="calculator-form__group calculator-form__group--transport">
+        <legend class="calculator-form__legend">Modelo de Transporte</legend>
+        <div class="calculator-form__transport-grid">
+          <label class="calculator-form__transport-option" for="transport-bicicleta">
+            <input type="radio" id="transport-bicicleta" name="transporte" value="Bicicleta" class="calculator-form__radio">
+            <span class="calculator-form__transport-emoji">🚲</span>
+            <span class="calculator-form__transport-name">Bicicleta</span>
+          </label>
+          <label class="calculator-form__transport-option" for="transport-carro">
+            <input type="radio" id="transport-carro" name="transporte" value="Carro" class="calculator-form__radio" checked>
+            <span class="calculator-form__transport-emoji">🚗</span>
+            <span class="calculator-form__transport-name">Carro</span>
+          </label>
+          <label class="calculator-form__transport-option" for="transport-onibus">
+            <input type="radio" id="transport-onibus" name="transporte" value="Ônibus" class="calculator-form__radio">
+            <span class="calculator-form__transport-emoji">🚌</span>
+            <span class="calculator-form__transport-name">Ônibus</span>
+          </label>
+          <label class="calculator-form__transport-option" for="transport-caminhao">
+            <input type="radio" id="transport-caminhao" name="transporte" value="Caminhão" class="calculator-form__radio">
+            <span class="calculator-form__transport-emoji">🚚</span>
+            <span class="calculator-form__transport-name">Caminhão</span>
+          </label>
+        </div>
+      </fieldset>
+      <button type="submit" class="calculator-form__submit">Calcular Emissão</button>
+    </form>
+
+    <section id="results" class="results hidden">
+      <div id="results-content"></div>
+    </section>
+    <section id="comparison" class="comparison hidden">
+      <div id="comparison-content"></div>
+    </section>
+    <section id="carbon-credits" class="carbon-credits hidden">
+      <div id="carbon-credits-content"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__credits">Projeto final para o BootCamp GitHub Copilot - Beatriz M. C. Tanaka</p>
+  </footer>
+
+  <script src="js/routes-data.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
